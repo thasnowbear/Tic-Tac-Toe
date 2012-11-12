@@ -8,5 +8,4 @@
 public class RandomClassTest extends junit.framework.TestCase {
     private String penis;
     int pussy;
-    double cunt;
 }
