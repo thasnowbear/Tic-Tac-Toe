@@ -6,6 +6,16 @@
  * To change this template use File | Settings | File Templates.
  */
 public class RandomClass {
+    private String shit;
+
+    public String getShit() {
+        return shit;
+    }
+
+    public void setShit(String shit) {
+        this.shit = shit;
+    }
+
     public RandomClass() {
     }
 }
