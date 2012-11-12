@@ -10,4 +10,5 @@ import junit.framework.TestSuite;
 import junit.framework.TestCase;
 
 public class RandomClassTest extends junit.framework.TestCase {
+    private String penis;
 }
