@@ -10,5 +10,15 @@ char[] boardArray = new char [9];
     public Board() {
     }
 
+    public String toString(){
+        return ("s");
+    }
 
+    public void updateBoard(User user, int move){
+
+    }
+
+    public char checkWinner(){
+        return 'x';
+    }
 }
