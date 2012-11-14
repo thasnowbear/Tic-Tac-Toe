@@ -3,19 +3,31 @@
  * User: Notandi
  * Date: 12.11.2012
  * Time: 17:02
- * To change this template use File | Settings | File Templates.
  */
 public class User {
     private String name;
-    private int won;
+    private int wins;
+    private char sign;
 
-    public User() {
+    public int getWin() {
+        return wins;
     }
 
-    public User(String name, int won) {
-        this.name = name;
+    public char getSign() {
+        return sign;
+    }
 
-        this.won = won;
+    public void setSign(char sign) {
+        this.sign = sign;
+    }
+
+    public User(String name, char sign) {
+        this.name = name;
+        this.sign = sign;
+        wins = 0;
+    }
+
+    public User() {
     }
 
     public String getName() {
@@ -26,11 +38,7 @@ public class User {
         this.name = name;
     }
 
-    public int getWon() {
-        return won;
-    }
-
-    public void setWon(int won) {
-        this.won = won;
+    public void addWin() {
+        wins++;
     }
 }
