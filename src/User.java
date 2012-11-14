@@ -9,8 +9,12 @@ public class User {
     private String name;
     private int won;
 
+    public User() {
+    }
+
     public User(String name, int won) {
         this.name = name;
+
         this.won = won;
     }
 
