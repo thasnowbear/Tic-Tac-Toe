@@ -39,6 +39,21 @@ public class BoardTest extends TestCase {
         assertEquals("tests UpdateBoard wants true back", false, b.updateBoard(c, 10));
     }
 
+    public void testCheckWinnerNoWinnerAndNothingPlaced() throws Exception {
+        Board b = new Board();
+        assertEquals("Test for winner when no winner should return .", '.', b.checkWinner());
+    }
+
+    public void testCheckWinnerWithWinner0to2() throws Exception {
+        Board b = new Board();
+
+        b.updateBoard('X', 0);
+        b.updateBoard('X', 1);
+        b.updateBoard('X', 2);
+
+        assertEquals("Test for winner when no winner should return X", 'X', b.checkWinner());
+    }
+
     public void setUp() throws Exception {
         super.setUp();
     }

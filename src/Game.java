@@ -12,7 +12,6 @@ public class Game {
     public User player1;
     public User player2;
     public Board board;
-    public boolean turn;
 
     public Game() {
         setPlayers();
@@ -45,7 +44,7 @@ public class Game {
 
         Scanner in = new Scanner(System.in);
 
-        while (board.checkWinner() == 'x') {
+        while (board.checkWinner() == '.') {
 
             user = (isPlayer1) ? player1 : player2;
             int cell;
@@ -60,6 +59,9 @@ public class Game {
 
             isPlayer1 = !isPlayer1;
         }
+
+        System.out.println(board);
+        System.out.println("Winner: " + board.checkWinner());
 
         in.close();
     }

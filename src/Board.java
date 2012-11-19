@@ -36,8 +36,30 @@ public class Board {
     }
 
     public char checkWinner() {
-        return 'x';
+        String moves1;
+        String moves2;
+
+        for (int i = 0; i < 9; i++) {
+            if (boardArray[i] == 'X')
+                moves1 += Character.forDigit(i, 10);
+            else if (boardArray[i] == 'O')
+                moves2 += Character.forDigit(i, 10);
+        }
+
+        String[] wins = {
+            "012", "345", "678",
+            "036", "147", "258",
+            "048", "246"
+        };
+
+        for (String win : wins) {
+            if (moves1.contains(win)) {
+                return 'X';
+            } else if (moves2.contains(win)) {
+                return 'O';
+            }
+        }
+
+        return '.';
     }
-
-
 }
