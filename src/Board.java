@@ -36,8 +36,8 @@ public class Board {
     }
 
     public char checkWinner() {
-        String moves1;
-        String moves2;
+        String moves1 = "";
+        String moves2 = "";
 
         for (int i = 0; i < 9; i++) {
             if (boardArray[i] == 'X')
