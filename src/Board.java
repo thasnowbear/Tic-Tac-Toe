@@ -5,20 +5,25 @@
  * Time: 17:02
  */
 public class Board {
-char[] boardArray = new char [9];
+    char[] boardArray = new char[9];
 
     public Board() {
+        for (int i = 0; i < 9; i++) {
+            boardArray[i] = Character.forDigit(i + 1, 10);
+        }
     }
 
-    public String toString(){
+    public String toString() {
         return ("s");
     }
 
-    public void updateBoard(User user, int move){
-
+    public boolean updateBoard(char c, int move) {
+        boardArray[move] = c;
+        return true;
     }
 
-    public char checkWinner(){
+    public char checkWinner() {
         return 'x';
     }
+
 }
