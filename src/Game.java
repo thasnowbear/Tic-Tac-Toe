@@ -45,7 +45,7 @@ public class Game {
 
         Scanner in = new Scanner(System.in);
 
-        while (board.checkWinner() == 'X') {
+        while (board.checkWinner() == 'x') {
 
             user = (isPlayer1) ? player1 : player2;
             int cell;
