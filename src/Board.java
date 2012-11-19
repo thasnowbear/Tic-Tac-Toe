@@ -18,7 +18,10 @@ public class Board {
     }
 
     public boolean updateBoard(char c, int move) {
-        boardArray[move] = c;
+        if (boardArray[move] == 'X' || boardArray[move] == 'O')
+            return false;
+        else
+            boardArray[move] = c;
         return true;
     }
 

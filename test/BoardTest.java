@@ -22,6 +22,14 @@ public class BoardTest extends TestCase {
         Board b = new Board();
         char c = 'X';
         assertEquals("tests UpdateBoard wants true back", true, b.updateBoard(c, 0));
+        assertEquals("tests UpdateBoard wants false back", false, b.updateBoard(c, 0));
+    }
+
+    public void testUpdateBoardTwoDiffInput() throws Exception {
+        Board b = new Board();
+        char c = 'X';
+        char d = 'O';
+        assertEquals("tests UpdateBoard wants false back", true, b.updateBoard(d, 0));
         assertEquals("tests UpdateBoard wants true back", false, b.updateBoard(c, 0));
     }
 
