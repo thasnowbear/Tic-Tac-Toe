@@ -26,6 +26,8 @@ public class Board {
     }
 
     public boolean updateBoard(char c, int move) {
+        if(move < 0 || move >8)
+            return false;
         if (boardArray[move] == 'X' || boardArray[move] == 'O')
             return false;
         else

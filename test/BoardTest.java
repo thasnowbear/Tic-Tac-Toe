@@ -33,6 +33,12 @@ public class BoardTest extends TestCase {
         assertEquals("tests UpdateBoard wants true back", false, b.updateBoard(c, 0));
     }
 
+    public void testUpdateBoardOuttaBoundInput() throws Exception {
+        Board b = new Board();
+        char c = 'X';
+        assertEquals("tests UpdateBoard wants true back", false, b.updateBoard(c, 10));
+    }
+
     public void setUp() throws Exception {
         super.setUp();
     }
