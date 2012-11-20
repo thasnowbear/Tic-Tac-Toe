@@ -119,7 +119,7 @@ public class BoardTest extends TestCase {
     public void testCheckWinnerForDraw() throws Exception {
         Board b = new Board();
 
-        assertEquals("Test for a draw", 'D', b.checkWinner('X', 1, 8));
+        assertEquals("Test for a draw", 'D', b.checkWinner('X', 1, 9));
     }
     /* public void testCheckWinnerNoWinnerAndNothingPlaced() throws Exception {
         Board b = new Board();
