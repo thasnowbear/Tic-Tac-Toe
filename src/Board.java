@@ -4,62 +4,105 @@
  * Date: 12.11.2012
  * Time: 17:02
  */
+
 public class Board {
-    char[] boardArray = new char[9];
+    char[][] boardArray = new char[3][3];
+    int x, y;
+    int xCord; //x coordinate, is used in updateBoard()
 
     public Board() {
-        for (int i = 0; i < 9; i++) {
-            boardArray[i] = Character.forDigit(i + 1, 10);
+        int s = 0; // used to keep track of the actual number of the quadrants (1 - 9)
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++){
+                boardArray[i][j] = Character.forDigit(s + 1, 10);
+                s++;
+            }
         }
     }
 
     @Override
     public String toString() {
         String display;
-        display = "   " + boardArray[0] + "  |  " + boardArray[1] + "  |  " + boardArray[2] + "\n"  //   1  |  2  |  3
+        display = "   " + boardArray[0][0] + "  |  " + boardArray[0][1] + "  |  " + boardArray[0][2] + "\n"  //   1  |  2  |  3
                 + " -----+-----+-----" + "\n"                                                       // -----+-----+-----
-                + "   " + boardArray[3] + "  |  " + boardArray[4] + "  |  " + boardArray[5] + "\n"  //   4  |  5  |  6
+                + "   " + boardArray[1][0] + "  |  " + boardArray[1][1] + "  |  " + boardArray[1][2] + "\n"  //   4  |  5  |  6
                 + " -----+-----+-----" + "\n"                                                       // -----+-----+-----
-                + "   " + boardArray[6] + "  |  " + boardArray[7] + "  |  " + boardArray[8] + "\n"; //   7  |  8  |  9
+                + "   " + boardArray[2][0] + "  |  " + boardArray[2][1] + "  |  " + boardArray[2][2] + "\n"; //   7  |  8  |  9
 
         return display;
     }
 
     public boolean updateBoard(char c, int move) {
-        if(move < 0 || move >8)
+        if(move < 1 || move > 9) {  //If the move is not legal
             return false;
-        if (boardArray[move] == 'X' || boardArray[move] == 'O')
+        }
+
+        setXY(move);
+
+        if (boardArray[x][y] == 'X' || boardArray[x][y] == 'O')
             return false;
         else
-            boardArray[move] = c;
+            boardArray[x][y] = c;
         return true;
     }
 
-    public char checkWinner() {
-        String moves1 = "";
-        String moves2 = "";
+    public char checkWinner(char c, int move, int moveCount) {  /*Checks for a winner after the most recent move by first checking the
+                                                   column that move is on, then the row, then the two diagonals*/
+        setXY(move);
 
-        for (int i = 0; i < 9; i++) {
-            if (boardArray[i] == 'X')
-                moves1 += Character.forDigit(i, 10);
-            else if (boardArray[i] == 'O')
-                moves2 += Character.forDigit(i, 10);
+        //Check if the column is a win
+        for(int i = 0; i < 3; i++){
+            if(boardArray[i][y] != c )
+                break;
+            if (i == 2)
+                return c;
         }
 
-        String[] wins = {
-            "012", "345", "678",
-            "036", "147", "258",
-            "048", "246"
-        };
+        //Check if the row is a win
+        for(int i = 0; i < 3; i++){
+            if(boardArray[x][i] != c)
+                break;
+            if (i == 2)
+                return c;
+        }
 
-        for (String win : wins) {
-            if (moves1.contains(win)) {
-                return 'X';
-            } else if (moves2.contains(win)) {
-                return 'O';
+        //check if diagonal from top left to bottom right is a win
+        if (x==y){ //checks to see if we are on a diagonal
+            for(int i = 0; i < 3; i++){
+                if(boardArray[i][i] != c)
+                    break;
+                if (i == 2)
+                    return c;
             }
         }
 
+        //check if diagonal from top right to bottom left is a win
+        for (int i = 0; i < 3; i++){
+            if(boardArray[i][2-i] != c)
+                break;
+            if(i == 2)
+                return c;
+        }
+
+        //check for a draw
+        if(moveCount == 3*3) //It is written like that so 3 can be replaced with n later
+            return 'D';
+
         return '.';
+    }
+
+    public void setXY(int move){   //converts the inserted move into x y coordinates.  Ex: 1 is inserted, so the xy coordinate should be (0,0)
+        if (move >= 1 && move  <= 3)       //Determining the x-coordinate
+            x = 0;
+        else if (move >= 4 && move <= 6)
+            x = 1;
+        else if (move >= 7 && move <= 9)
+            x = 2;
+
+        for (y = 0; y < 3; y++){   //Sets y coordinate
+            if (y == (move - 1) % 3){
+                break;
+            }
+        }
     }
 }

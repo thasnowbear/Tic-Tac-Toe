@@ -9,7 +9,7 @@ import junit.framework.TestSuite;
  * Time: 15:33
  * To change this template use File | Settings | File Templates.
  */
-public class GameTest extends TestCase {
+/*public class GameTest extends TestCase {
     public GameTest() {
 
     }
@@ -31,4 +31,4 @@ public class GameTest extends TestCase {
     public static Test suite() {
         return new TestSuite(GameTest.class);
     }
-}
+}    */
