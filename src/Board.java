@@ -21,11 +21,11 @@ public class Board {
     @Override
     public String toString() {
         String display;
-        display = "   " + boardArray[0][0] + "  |  " + boardArray[0][1] + "  |  " + boardArray[0][2] + "\n"  //   1  |  2  |  3
+        display = "   " + boardArray[0][0] + "  |  " + boardArray[1][0] + "  |  " + boardArray[2][0] + "\n"  //   1  |  2  |  3
                 + " -----+-----+-----" + "\n"                                                       // -----+-----+-----
-                + "   " + boardArray[1][0] + "  |  " + boardArray[1][1] + "  |  " + boardArray[1][2] + "\n"  //   4  |  5  |  6
+                + "   " + boardArray[0][1] + "  |  " + boardArray[1][1] + "  |  " + boardArray[2][1] + "\n"  //   4  |  5  |  6
                 + " -----+-----+-----" + "\n"                                                       // -----+-----+-----
-                + "   " + boardArray[2][0] + "  |  " + boardArray[2][1] + "  |  " + boardArray[2][2] + "\n"; //   7  |  8  |  9
+                + "   " + boardArray[0][2] + "  |  " + boardArray[1][2] + "  |  " + boardArray[2][2] + "\n"; //   7  |  8  |  9
 
         return display;
     }
@@ -54,7 +54,7 @@ public class Board {
         x = xy[0];
         y = xy[1];
 
-        //Check if the column is a win
+        //Check if the row is a win
         for(int i = 0; i < 3; i++){
             if(boardArray[i][y] != c )
                 break;
@@ -62,7 +62,7 @@ public class Board {
                 return c;
         }
 
-        //Check if the row is a win
+        //Check if the column is a win
         for(int i = 0; i < 3; i++){
             if(boardArray[x][i] != c)
                 break;
@@ -96,16 +96,16 @@ public class Board {
     }
 
     public int[] setXY(int move) {   //converts the inserted move into x y coordinates.  Ex: 1 is inserted, so the xy coordinate should be (0,0)
-        int y, x = 0;
-        if (move >= 1 && move  <= 3)       //Determining the x-coordinate
-            x = 0;
+        int y = 0, x;
+        if (move >= 1 && move  <= 3)       //Determining the y-coordinate
+            y = 0;
         else if (move >= 4 && move <= 6)
-            x = 1;
+            y = 1;
         else if (move >= 7 && move <= 9)
-            x = 2;
+            y = 2;
 
-        for (y = 0; y < 3; y++){   //Sets y coordinate
-            if (y == (move - 1) % 3) {
+        for (x = 0; x < 3; x++){   //Sets x coordinate
+            if (x == (move - 1) % 3) {
                 break;
             }
         }

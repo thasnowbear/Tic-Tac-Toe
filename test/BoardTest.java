@@ -138,8 +138,8 @@ public class BoardTest extends TestCase {
         x = xy[0];
         y = xy[1];
 
-        assertEquals("X should be 1 when move is 6", 1, x);
-        assertEquals("Y should be 2 when move is 6", 2, y);
+        assertEquals("X should be 2 when move is 6", 2, x);
+        assertEquals("Y should be 1 when move is 6", 1, y);
 
         xy = b.setXY(9);
         x = xy[0];
