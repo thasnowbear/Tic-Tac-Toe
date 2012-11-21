@@ -54,8 +54,10 @@ public class Game {
             do {
                 System.out.println(board);
 
-                if (!valid)
+                if (!valid){
                     System.out.println("Input not valid!");
+                    moveCount--;
+                }
                 System.out.println(user.getName() + " - pick a cell 1-9:");
 
                 cell = in.nextInt();
