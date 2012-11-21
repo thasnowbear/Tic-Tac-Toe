@@ -122,6 +122,33 @@ public class BoardTest extends TestCase {
         assertEquals("Test for a draw", 'D', b.checkWinner('X', 1, 9));
     }
 
+    public void testSetXY() throws Exception {
+        Board b = new Board();
+
+        int x, y;
+        int[] xy;
+        xy = b.setXY(1);
+        x = xy[0];
+        y = xy[1];
+
+        assertEquals("X should be 0 when move is 1", 0, x);
+        assertEquals("Y should be 0 when move is 1", 0, y);
+
+        xy = b.setXY(6);
+        x = xy[0];
+        y = xy[1];
+
+        assertEquals("X should be 1 when move is 6", 1, x);
+        assertEquals("Y should be 2 when move is 6", 2, y);
+
+        xy = b.setXY(9);
+        x = xy[0];
+        y = xy[1];
+
+        assertEquals("X should be 2 when move is 9", 2, x);
+        assertEquals("Y should be 2 when move is 9", 2, y);
+    }
+
     public void setUp() throws Exception {
         super.setUp();
     }

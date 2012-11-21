@@ -7,8 +7,6 @@
 
 public class Board {
     char[][] boardArray = new char[3][3];
-    int x, y;
-    int xCord; //x coordinate, is used in updateBoard()
 
     public Board() {
         int s = 0; // used to keep track of the actual number of the quadrants (1 - 9)
@@ -37,7 +35,10 @@ public class Board {
             return false;
         }
 
-        setXY(move);
+        int x, y;
+        int[] xy = setXY(move);
+        x = xy[0];
+        y = xy[1];
 
         if (boardArray[x][y] == 'X' || boardArray[x][y] == 'O')
             return false;
@@ -48,7 +49,10 @@ public class Board {
 
     public char checkWinner(char c, int move, int moveCount) {  /*Checks for a winner after the most recent move by first checking the
                                                    column that move is on, then the row, then the two diagonals*/
-        setXY(move);
+        int x, y;
+        int[] xy = setXY(move);
+        x = xy[0];
+        y = xy[1];
 
         //Check if the column is a win
         for(int i = 0; i < 3; i++){
@@ -91,7 +95,8 @@ public class Board {
         return '.';
     }
 
-    public void setXY(int move){   //converts the inserted move into x y coordinates.  Ex: 1 is inserted, so the xy coordinate should be (0,0)
+    public int[] setXY(int move) {   //converts the inserted move into x y coordinates.  Ex: 1 is inserted, so the xy coordinate should be (0,0)
+        int y, x = 0;
         if (move >= 1 && move  <= 3)       //Determining the x-coordinate
             x = 0;
         else if (move >= 4 && move <= 6)
@@ -100,9 +105,11 @@ public class Board {
             x = 2;
 
         for (y = 0; y < 3; y++){   //Sets y coordinate
-            if (y == (move - 1) % 3){
+            if (y == (move - 1) % 3) {
                 break;
             }
         }
+
+        return new int[] { x, y };
     }
 }
