@@ -52,15 +52,15 @@ public class BoardTest extends TestCase {
         b.updateBoard(c, 6);
         b.updateBoard(c, 9);
 
-        assertEquals("Test if the leftmost column full of X's is a win with move 1", 'X', b.checkWinner(c, 1, 1));
-        assertEquals("Test if the leftmost column full of X's is a win with move 4", 'X', b.checkWinner(c, 4, 1));
-        assertEquals("Test if the leftmost column full of X's is a win with move 7", 'X', b.checkWinner(c, 7, 1));
-        assertEquals("Test if the middle column full of X's is a win with move 2", 'X', b.checkWinner(c, 2, 1));
-        assertEquals("Test if the middle column full of X's is a win with move 5", 'X', b.checkWinner(c, 5, 1));
-        assertEquals("Test if the middle column full of X's is a win with move 8", 'X', b.checkWinner(c, 8, 1));
-        assertEquals("Test if the rightmost column full of X's is a win with move 3", 'X', b.checkWinner(c, 3, 1));
-        assertEquals("Test if the rightmost column full of X's is a win with move 6", 'X', b.checkWinner(c, 6, 1));
-        assertEquals("Test if the rightmost column full of X's is a win with move 9", 'X', b.checkWinner(c, 9, 1));
+        assertEquals("Test if the leftmost column full of X's is a win with move 1", 'X', b.checkWinner(c, 1));
+        assertEquals("Test if the leftmost column full of X's is a win with move 4", 'X', b.checkWinner(c, 4));
+        assertEquals("Test if the leftmost column full of X's is a win with move 7", 'X', b.checkWinner(c, 7));
+        assertEquals("Test if the middle column full of X's is a win with move 2", 'X', b.checkWinner(c, 2));
+        assertEquals("Test if the middle column full of X's is a win with move 5", 'X', b.checkWinner(c, 5));
+        assertEquals("Test if the middle column full of X's is a win with move 8", 'X', b.checkWinner(c, 8));
+        assertEquals("Test if the rightmost column full of X's is a win with move 3", 'X', b.checkWinner(c, 3));
+        assertEquals("Test if the rightmost column full of X's is a win with move 6", 'X', b.checkWinner(c, 6));
+        assertEquals("Test if the rightmost column full of X's is a win with move 9", 'X', b.checkWinner(c, 9));
     }
 
     public void testCheckWinnerIfColumnIsAWinWithO() throws Exception {
@@ -70,7 +70,7 @@ public class BoardTest extends TestCase {
         b.updateBoard(c, 4);
         b.updateBoard(c, 7);
 
-        assertEquals("Test if leftmost column full of O's is a win with move 1", 'O', b.checkWinner(c, 1, 1));
+        assertEquals("Test if leftmost column full of O's is a win with move 1", 'O', b.checkWinner(c, 1));
     }
 
     public void testCheckWinnerIfRowIsAWin() throws Exception {
@@ -84,12 +84,12 @@ public class BoardTest extends TestCase {
         b.updateBoard(d, 5);
         b.updateBoard(d, 6);
 
-        assertEquals("Test if the top row full of X's is a win with move 1", 'X', b.checkWinner(c, 1, 1));
-        assertEquals("Test if the top row full of X's is a win with move 2", 'X', b.checkWinner(c, 2, 1));
-        assertEquals("Test if the top row full of X's is a win with move 3", 'X', b.checkWinner(c, 3, 1));
-        assertEquals("Test if the middle row full of O's is a win with move 4", 'O', b.checkWinner(d, 4, 1));
-        assertEquals("Test if the middle row full of O's is a win with move 5", 'O', b.checkWinner(d, 5, 1));
-        assertEquals("Test if the middle row full of O's is a win with move 6", 'O', b.checkWinner(d, 6, 1));
+        assertEquals("Test if the top row full of X's is a win with move 1", 'X', b.checkWinner(c, 1));
+        assertEquals("Test if the top row full of X's is a win with move 2", 'X', b.checkWinner(c, 2));
+        assertEquals("Test if the top row full of X's is a win with move 3", 'X', b.checkWinner(c, 3));
+        assertEquals("Test if the middle row full of O's is a win with move 4", 'O', b.checkWinner(d, 4));
+        assertEquals("Test if the middle row full of O's is a win with move 5", 'O', b.checkWinner(d, 5));
+        assertEquals("Test if the middle row full of O's is a win with move 6", 'O', b.checkWinner(d, 6));
     }
 
     public void testCheckWinnerIfDiagonalIsAWin() throws Exception {
@@ -99,9 +99,9 @@ public class BoardTest extends TestCase {
         b.updateBoard(c, 5);
         b.updateBoard(c, 9);
 
-        assertEquals("Test if a diagonal from top left to bottom right full of X's is a win with move 1", 'X', b.checkWinner(c, 1, 1));
-        assertEquals("Test if a diagonal from top left to bottom right full of X's is a win with move 5", 'X', b.checkWinner(c, 5, 1));
-        assertEquals("Test if a diagonal from top left to bottom right full of X's is a win with move 9", 'X', b.checkWinner(c, 9, 1));
+        assertEquals("Test if a diagonal from top left to bottom right full of X's is a win with move 1", 'X', b.checkWinner(c, 1));
+        assertEquals("Test if a diagonal from top left to bottom right full of X's is a win with move 5", 'X', b.checkWinner(c, 5));
+        assertEquals("Test if a diagonal from top left to bottom right full of X's is a win with move 9", 'X', b.checkWinner(c, 9));
     }
 
     public void testCheckWinnerIfAntiDiagonalIsAWin() throws Exception {
@@ -111,15 +111,25 @@ public class BoardTest extends TestCase {
         b.updateBoard(c, 5);
         b.updateBoard(c, 7);
 
-        assertEquals("Test if a diagonal from top left to bottom right full of X's is a win with move 3", 'X', b.checkWinner(c, 3, 1));
-        assertEquals("Test if a diagonal from top left to bottom right full of X's is a win with move 5", 'X', b.checkWinner(c, 5, 1));
-        assertEquals("Test if a diagonal from top left to bottom right full of X's is a win with move 7", 'X', b.checkWinner(c, 7, 1));
+        assertEquals("Test if a diagonal from top left to bottom right full of X's is a win with move 3", 'X', b.checkWinner(c, 3));
+        assertEquals("Test if a diagonal from top left to bottom right full of X's is a win with move 5", 'X', b.checkWinner(c, 5));
+        assertEquals("Test if a diagonal from top left to bottom right full of X's is a win with move 7", 'X', b.checkWinner(c, 7));
     }
 
     public void testCheckWinnerForDraw() throws Exception {
         Board b = new Board();
 
-        assertEquals("Test for a draw", 'D', b.checkWinner('X', 1, 9));
+        b.updateBoard('X', 1);
+        b.updateBoard('X', 2);
+        b.updateBoard('O', 3);
+        b.updateBoard('O', 4);
+        b.updateBoard('O', 5);
+        b.updateBoard('X', 6);
+        b.updateBoard('X', 7);
+        b.updateBoard('O', 8);
+        b.updateBoard('O', 9);
+
+        assertEquals("Test for a draw", 'D', b.checkWinner('X', 1));
     }
 
     public void testSetXY() throws Exception {

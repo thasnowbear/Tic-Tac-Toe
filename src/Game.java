@@ -41,7 +41,6 @@ public class Game {
     public void loop() {
         boolean isPlayer1 = true;
         User user;
-        int moveCount = 0;
         char winner = '.';
         Scanner in = new Scanner(System.in);
 
@@ -56,14 +55,12 @@ public class Game {
 
                 if (!valid){
                     System.out.println("Input not valid!");
-                    moveCount--;
                 }
                 System.out.println(user.getName() + " - pick a cell 1-9:");
 
                 cell = in.nextInt();
                 valid = board.updateBoard(user.getSign(), cell);
-                moveCount++;
-                winner = board.checkWinner(user.getSign(), cell, moveCount);
+                winner = board.checkWinner(user.getSign(), cell);
             } while (!valid);
 
 

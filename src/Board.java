@@ -7,6 +7,7 @@
 
 public class Board {
     char[][] boardArray = new char[3][3];
+    private int moveCount = 0;
 
     public Board() {
         int s = 0; // used to keep track of the actual number of the quadrants (1 - 9)
@@ -44,10 +45,11 @@ public class Board {
             return false;
         else
             boardArray[x][y] = c;
+        moveCount++;
         return true;
     }
 
-    public char checkWinner(char c, int move, int moveCount) {  /*Checks for a winner after the most recent move by first checking the
+    public char checkWinner(char c, int move) {  /*Checks for a winner after the most recent move by first checking the
                                                    column that move is on, then the row, then the two diagonals*/
         int x, y;
         int[] xy = setXY(move);
