@@ -22,11 +22,11 @@ public class Board {
     @Override
     public String toString() {
         String display;
-        display = "   " + boardArray[0][0] + "  |  " + boardArray[1][0] + "  |  " + boardArray[2][0] + "\n"  //   1  |  2  |  3
+        display = "   " + boardArray[0][0] + "  |  " + boardArray[0][1] + "  |  " + boardArray[0][2] + "\n"  //   1  |  2  |  3
                 + " -----+-----+-----" + "\n"                                                       // -----+-----+-----
-                + "   " + boardArray[0][1] + "  |  " + boardArray[1][1] + "  |  " + boardArray[2][1] + "\n"  //   4  |  5  |  6
+                + "   " + boardArray[1][0] + "  |  " + boardArray[1][1] + "  |  " + boardArray[1][2] + "\n"  //   4  |  5  |  6
                 + " -----+-----+-----" + "\n"                                                       // -----+-----+-----
-                + "   " + boardArray[0][2] + "  |  " + boardArray[1][2] + "  |  " + boardArray[2][2] + "\n"; //   7  |  8  |  9
+                + "   " + boardArray[2][0] + "  |  " + boardArray[2][1] + "  |  " + boardArray[2][2] + "\n"; //   7  |  8  |  9
 
         return display;
     }
@@ -98,16 +98,16 @@ public class Board {
     }
 
     public int[] setXY(int move) {   //converts the inserted move into x y coordinates.  Ex: 1 is inserted, so the xy coordinate should be (0,0)
-        int y = 0, x;
-        if (move >= 1 && move  <= 3)       //Determining the y-coordinate
-            y = 0;
-        else if (move >= 4 && move <= 6)
-            y = 1;
-        else if (move >= 7 && move <= 9)
-            y = 2;
+        int y, x;
 
         for (x = 0; x < 3; x++){   //Sets x coordinate
             if (x == (move - 1) % 3) {
+                break;
+            }
+        }
+
+        for (y = 0; y < 3; y++){   //Sets y coordinate
+            if (y == ((move - 1) - (move - 1) % 3) / 3) {
                 break;
             }
         }
