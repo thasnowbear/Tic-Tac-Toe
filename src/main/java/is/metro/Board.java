@@ -1,6 +1,8 @@
+package is.metro;
+
 /**
  * Created with IntelliJ IDEA.
- * User: Notandi
+ * is.metro.User: Notandi
  * Date: 12.11.2012
  * Time: 17:02
  */

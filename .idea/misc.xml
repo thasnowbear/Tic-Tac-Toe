@@ -4,6 +4,21 @@
     <entry_points version="2.0" />
   </component>
   <component name="IdProvider" IDEtalkID="782EA4C8FA08AD33033EB009F459E93B" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/untitled/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/TicTacToe/pom.xml" />
+        <option value="$PROJECT_DIR$/test/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/TicTacToe/pom.xml" />
+      </set>
+    </option>
+  </component>
   <component name="ProjectResources">
     <default-html-doctype>http://www.w3.org/1999/xhtml</default-html-doctype>
   </component>
