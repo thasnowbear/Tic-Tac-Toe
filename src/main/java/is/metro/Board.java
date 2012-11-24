@@ -15,20 +15,24 @@ public class Board {
         int s = 0; // used to keep track of the actual number of the quadrants (1 - 9)
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++){
-                boardArray[i][j] = Character.forDigit(s + 1, 10);
+                boardArray[j][i] = Character.forDigit(s + 1, 10);
                 s++;
             }
         }
     }
 
+    public char[][] getBoardArray() {
+        return boardArray;
+    }
+
     @Override
     public String toString() {
         String display;
-        display = "   " + boardArray[0][0] + "  |  " + boardArray[0][1] + "  |  " + boardArray[0][2] + "\n"  //   1  |  2  |  3
+        display = "   " + boardArray[0][0] + "  |  " + boardArray[1][0] + "  |  " + boardArray[2][0] + "\n"  //   1  |  2  |  3
                 + " -----+-----+-----" + "\n"                                                       // -----+-----+-----
-                + "   " + boardArray[1][0] + "  |  " + boardArray[1][1] + "  |  " + boardArray[1][2] + "\n"  //   4  |  5  |  6
+                + "   " + boardArray[0][1] + "  |  " + boardArray[1][1] + "  |  " + boardArray[2][1] + "\n"  //   4  |  5  |  6
                 + " -----+-----+-----" + "\n"                                                       // -----+-----+-----
-                + "   " + boardArray[2][0] + "  |  " + boardArray[2][1] + "  |  " + boardArray[2][2] + "\n"; //   7  |  8  |  9
+                + "   " + boardArray[0][2] + "  |  " + boardArray[1][2] + "  |  " + boardArray[2][2] + "\n"; //   7  |  8  |  9
 
         return display;
     }

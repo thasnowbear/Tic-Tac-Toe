@@ -159,6 +159,14 @@ public class BoardTest extends TestCase {
 
         assertEquals("X should be 2 when move is 9", 2, x);
         assertEquals("Y should be 2 when move is 9", 2, y);
+
+        xy = b.setXY(8);
+        x = xy[0];
+        y = xy[1];
+
+        assertEquals("X should be 1 when move is 8", 1, x);
+        assertEquals("Y should be 2 when move is 8", 2, y);
+
     }
 
     public void setUp() throws Exception {

@@ -12,11 +12,14 @@ public class Game {
     public User player1;
     public User player2;
     public Board board;
+    public UI ui;
 
     public Game() {
         setPlayers();
 
         board = new Board();
+
+        ui = new UI();
 
         loop();
     }
@@ -51,7 +54,7 @@ public class Game {
             boolean valid = true;
 
             do {
-                System.out.println(board);
+                System.out.println(ui.toString(board.getBoardArray()));
 
                 if (!valid){
                     System.out.println("Input not valid!");
