@@ -10,6 +10,7 @@ package is.metro;
 public class Board {
     char[][] boardArray = new char[3][3];
     private int moveCount = 0;
+    public char winner = '.';
 
     public Board() {
         int s = 0; // used to keep track of the actual number of the quadrants (1 - 9)
@@ -52,6 +53,7 @@ public class Board {
         else
             boardArray[x][y] = c;
         moveCount++;
+        winner = checkWinner(c, move);
         return true;
     }
 

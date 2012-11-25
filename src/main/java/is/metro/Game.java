@@ -11,13 +11,10 @@ public class Game {
 
     public User player1;
     public User player2;
-    public Board board;
     public UI ui;
 
     public Game() {
         setPlayers();
-
-        board = new Board();
 
         ui = new UI();
 
@@ -44,37 +41,52 @@ public class Game {
     public void loop() {
         boolean isPlayer1 = true;
         User user;
-        char winner = '.';
         Scanner in = new Scanner(System.in);
 
-        while (winner == '.') {
-
-            user = (isPlayer1) ? player1 : player2;
-            int cell;
-            boolean valid = true;
+        while (true) {
+            Board board = new Board();
 
             do {
-                System.out.println(ui.toString(board.getBoardArray()));
+                user = (isPlayer1) ? player1 : player2;
+                int cell;
+                boolean valid = true;
 
-                if (!valid){
-                    System.out.println("Input not valid!");
-                }
-                System.out.println(user.getName() + " - pick a cell 1-9:");
+                do {
+                    System.out.println(ui.toString(board.getBoardArray()));
 
-                cell = in.nextInt();
-                valid = board.updateBoard(user.getSign(), cell);
-                winner = board.checkWinner(user.getSign(), cell);
-            } while (!valid);
+                    if (!valid){
+                        System.out.println("Input not valid!");
+                    }
+                    System.out.println(user.getName() + " - pick a cell 1-9:");
+
+                    cell = in.nextInt();
+                    in.nextLine(); // Whitespace
+                    valid = board.updateBoard(user.getSign(), cell);
+                } while (!valid);
 
 
-            isPlayer1 = !isPlayer1;
+                isPlayer1 = !isPlayer1;
+            } while (board.winner == '.');
+
+            System.out.println(board);
+            if(board.winner == 'D') {
+                System.out.println("Draw");
+            } else {
+                System.out.println("Winner: " + user.getName() + " (" + board.winner + ")");
+
+                user.addWin();
+            }
+
+            System.out.println("Scores:");
+            System.out.println(player1.getName() + ": " + player1.getWin());
+            System.out.println(player2.getName() + ": " + player2.getWin());
+
+            // Repeat the game?
+            System.out.println("Play again (y/n)? ");
+            String YorN = in.nextLine();
+            if (!YorN.toLowerCase().startsWith("y"))
+                break;
         }
-
-        System.out.println(board);
-        if(winner == 'D')
-            System.out.println("Draw");
-        else
-            System.out.println("Winner: " + winner);
 
         in.close();
     }
